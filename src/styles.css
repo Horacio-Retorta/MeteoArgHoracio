@@ -1,0 +1,117 @@
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#12304a55,transparent 40rem),#071426;color:#eaf1fa;font-family:'DM Sans',sans-serif}button,input{font:inherit}.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;padding:26px 18px;background:#09182b;border-right:1px solid #ffffff12;display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:12px;padding:4px 7px 38px;color:#f1f7ff}.brandicon{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,#83dfff,#42aee8);color:#08223a;display:grid;place-items:center}.brand b,.brand em{font:800 18px Manrope,sans-serif;font-style:normal}.brand em{color:#55c9f5}.brand small{display:block;color:#718ba8;font-size:8px;letter-spacing:1px;margin-top:4px}.sidebar>label,.cities label,.welcome label,.sectionhead label,.forecasthead label{font-size:9px;letter-spacing:1.5px;font-weight:700;color:#7290ad}.sidebar>label{padding:0 12px 12px}.sidebar nav{display:grid;gap:5px}.sidebar nav button{height:43px;border:0;border-radius:9px;background:none;color:#90a7c1;text-align:left;padding:0 12px;display:flex;align-items:center;gap:12px;cursor:pointer;font-size:12px}.sidebar nav button.active,.sidebar nav button:hover{background:#55c9f51c;color:#e8f8ff}.sidebar nav button.active{box-shadow:inset 2px 0 #55c9f5}.sidebar nav button small{margin-left:auto;font-size:7px;color:#6c86a2}.sidefoot{margin-top:auto;padding:15px 12px;border:1px solid #ffffff15;border-radius:11px;color:#c5d5e5;font-size:11px}.sidefoot i,header>small i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4bd69b;box-shadow:0 0 9px #4bd69b;margin-right:7px}.sidefoot p{color:#7e94ae;font-size:10px;line-height:1.5}.sidefoot small{color:#536d88;font-size:8px;letter-spacing:1px}main{margin-left:245px}header{height:68px;border-bottom:1px solid #ffffff12;display:flex;align-items:center;justify-content:space-between;padding:0 38px;color:#8198b2;font-size:11px}header strong{color:#dce9f6;font-weight:500}header>small{font-size:8px;letter-spacing:1px}.content{max-width:1250px;margin:auto;padding:37px 38px 22px}.welcome{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px;gap:15px}.welcome label,.sectionhead label,.forecasthead label{color:#55c9f5}.welcome h1{font:800 clamp(28px,4vw,40px) Manrope,sans-serif;letter-spacing:-1.7px;margin:9px 0 7px}.welcome h1 span{color:#55c9f5}.welcome p{color:#8298b2;font-size:12px;margin:0}.welcome time{display:flex;align-items:center;gap:8px;color:#a6bad0;font-size:10px;white-space:nowrap}.welcome time svg{color:#55c9f5}.search{height:51px;border:1px solid #ffffff19;border-radius:10px;background:#0d2036;display:flex;align-items:center;gap:12px;padding:6px 7px 6px 15px}.search svg{color:#81a0bf}.search input{flex:1;min-width:0;border:0;outline:0;background:none;color:white;font-size:12px}.search input::placeholder{color:#687f9b}.search button{height:37px;border:0;border-radius:7px;padding:0 15px;background:#55c9f5;color:#062039;font-size:10px;font-weight:700;cursor:pointer}.cities{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin:19px 0 26px}.cities button{border:1px solid #ffffff18;border-radius:20px;background:#ffffff05;color:#94abc3;padding:7px 11px;font-size:9px;cursor:pointer}.cities button.chosen,.cities button:hover{color:#9ce3ff;border-color:#55c9f577;background:#55c9f51a}.message{padding:11px 13px;border:1px solid #f3bd6244;background:#f3bd620d;color:#f4cc8e;border-radius:8px;margin-bottom:17px;font-size:11px}.sectionhead,.forecasthead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.sectionhead h2,.forecasthead h2{font:700 17px Manrope,sans-serif;margin:4px 0 0}.sectionhead>button{display:flex;align-items:center;gap:6px;border:1px solid #ffffff1c;border-radius:7px;padding:8px 10px;background:none;color:#a3b8ce;font-size:10px;cursor:pointer}.weathergrid{display:grid;grid-template-columns:1.25fr 1fr;gap:12px}.panel{border:1px solid #ffffff13;border-radius:13px;background:linear-gradient(145deg,#102640,#0c1d32);box-shadow:0 12px 35px #0002}.hero{padding:20px 22px;min-height:235px;background:radial-gradient(circle at 80% 40%,#1e6c9440,transparent 15rem),linear-gradient(145deg,#12304b,#0d2036)}.location{display:flex;align-items:center;gap:7px;color:#b3c7dc;font-size:10px}.location svg{color:#55c9f5}.location span{margin-left:auto;color:#63dfa9;font-size:8px;letter-spacing:1px}.now{display:flex;align-items:center;justify-content:space-between;padding:22px 5px 17px}.now strong{font:700 76px/.95 Manrope,sans-serif;letter-spacing:-6px}.now sup{font-size:35px}.now p{margin:8px 0 4px;color:#d3e2f0;font-size:12px}.now small{color:#8199b4;font-size:9px}.bigicon{width:94px;height:94px;color:#7bd9fa;margin-right:14px;stroke-width:1.2}.highlow{border-top:1px solid #ffffff14;padding-top:12px;color:#b8cadd;font-size:10px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{padding:14px;min-height:110px}.metric-icon{width:30px;height:30px;border-radius:8px;background:#55c9f51b;color:#55c9f5;display:grid;place-items:center}.metric small{display:block;color:#849bb4;font-size:9px;margin-top:10px}.metric strong{display:block;font:700 18px Manrope,sans-serif;margin-top:4px}.forecast{margin-top:15px;padding:18px 19px 9px}.forecasthead{margin-bottom:14px}.forecasthead>small{color:#7891ab;font-size:8px;letter-spacing:1px}.dayrow{min-height:47px;border-top:1px solid #ffffff0e;display:grid;grid-template-columns:1fr 30px 1.3fr 35px 1.3fr 35px 43px;gap:8px;align-items:center;color:#9bb0c7;font-size:10px}.dayrow svg{color:#77d2f4}.dayrow b{color:#dce8f4}.bar{height:4px;border-radius:9px;background:#1b3b59;position:relative;overflow:hidden}.bar i{position:absolute;top:0;width:30%;height:100%;border-radius:8px;background:linear-gradient(90deg,#4bb8e7,#f3bd62)}.dayrow small{display:flex;align-items:center;gap:3px;color:#6dc9ed;font-size:9px}.waiting{text-align:center;padding:35px 8px;color:#8098b3;font-size:11px}footer{display:flex;justify-content:space-between;padding:24px 2px 5px;color:#607995;font-size:9px}footer span{color:#607995}.menubtn{display:none}@media(max-width:1000px){.sidebar{width:215px}main{margin-left:215px}.content{padding:30px 24px}.weathergrid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(4,1fr)}.metric{min-height:103px}}@media(max-width:700px){.sidebar{transform:translateX(-110%);transition:transform .2s;width:250px;box-shadow:15px 0 35px #0006}.sidebar.open{transform:translateX(0)}main{margin-left:0}header{height:58px;padding:0 15px;justify-content:flex-start;gap:12px}.menubtn{display:block;border:0;background:none;color:#d5e7f6;padding:3px}.welcome{display:block}.welcome time{margin-top:14px}.content{padding:25px 15px 20px}.cities{align-items:flex-start}.cities label{width:100%}.metrics{grid-template-columns:1fr 1fr}.dayrow{grid-template-columns:1fr 25px 35px 1fr 35px 40px}.dayrow .condition{display:none}.forecast{padding:15px 12px 8px}.dayrow{gap:5px}.forecasthead>small{font-size:7px}footer{flex-direction:column;gap:8px}}
+
+.weather-map {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.weather-map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.weather-map-head label {
+  color: #55c9f5;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.weather-map-head h2 {
+  font: 700 19px Manrope, sans-serif;
+  margin: 5px 0 0;
+}
+
+.weather-map-head span {
+  color: #55c9f5;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.argentina-map {
+  width: 100%;
+  height: 560px;
+  border-radius: 10px;
+  background: #0d2036;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .weather-map {
+    padding: 12px;
+  }
+
+  .argentina-map {
+    height: 430px;
+  }
+}
+.weather-map {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.weather-map-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.weather-map-head label {
+  color: #55c9f5;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.weather-map-head h2 {
+  font-size: 19px;
+  margin: 5px 0 0;
+}
+
+.weather-map-head span {
+  color: #55c9f5;
+  font-size: 9px;
+}
+
+.argentina-map {
+  width: 100%;
+  height: 560px;
+  border-radius: 10px;
+  background: #0d2036;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .weather-map {
+    padding: 12px;
+  }
+
+  .argentina-map {
+    height: 430px;
+  }
+  .rain-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 18px;
+  font-size: 12px;
+  color: #b8c9d9;
+}
+
+.rain-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rain-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+}
