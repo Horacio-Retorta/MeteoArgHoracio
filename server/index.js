@@ -16,5 +16,5 @@ app.get('/api/geocode',async(req,res)=>{
  try{const p=new URLSearchParams({name,count:'10',language:'es',format:'json'});const r=await fetch('https://geocoding-api.open-meteo.com/v1/search?'+p);if(!r.ok)return res.status(502).json({error:'Falló la búsqueda.'});const d=await r.json();const m=(d.results||[]).find(x=>x.country_code==='AR');if(!m)return res.status(404).json({error:'No encontramos esa localidad en Argentina.'});res.json({city:{name:m.name,province:m.admin1||'Argentina',latitude:m.latitude,longitude:m.longitude}});}
  catch{res.status(502).json({error:'No fue posible realizar la búsqueda.'});}
 });
-const dist=path.resolve(dir,'../client/dist');app.use(express.static(dist));app.get('*',(req,res,next)=>{if(req.path.startsWith('/api/'))return next();res.sendFile(path.join(dist,'index.html'),e=>{if(e)res.status(404).send('Frontend sin compilar. Ejecutá npm run build.');});});
+const dist=path.resolve(dir,'../dist');app.use(express.static(dist));app.get('*',(req,res,next)=>{if(req.path.startsWith('/api/'))return next();res.sendFile(path.join(dist,'index.html'),e=>{if(e)res.status(404).send('Frontend sin compilar. Ejecutá npm run build.');});});
 app.listen(PORT,()=>console.log(`MeteoArgHoracio API: http://localhost:${PORT}`));
