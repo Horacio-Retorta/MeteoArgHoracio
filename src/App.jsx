@@ -7,8 +7,87 @@ const day=d=>new Intl.DateTimeFormat('es-AR',{weekday:'short',day:'numeric',mont
 function Metric({Icon,label,value}){return <article className="metric panel"><span className="metric-icon"><Icon size={18}/></span><small>{label}</small><strong>{value}</strong></article>}
 export default function App(){
  const [city,setCity]=useState(cities[0]),[data,setData]=useState(null),[query,setQuery]=useState(''),[message,setMessage]=useState(''),[loading,setLoading]=useState(false),[section,setSection]=useState('Resumen'),[menu,setMenu]=useState(false);
- async function load(c){setLoading(true);setMessage('');try{const p=new URLSearchParams({latitude:c.latitude,longitude:c.longitude});const r=await fetch('/api/weather?'+p);if(!r.ok)throw Error('No se pudo consultar el pronóstico.');setData(await r.json());setCity(c);}catch(e){setMessage(e.message+' Revisá que el backend esté iniciado.');}finally{setLoading(false)}}
- async function search(e){e.preventDefault();if(!query.trim())return;setMessage('Buscando localidad…');try{const r=await fetch('/api/geocode?name='+encodeURIComponent(query));const d=await r.json();if(!r.ok)throw Error(d.error||'Localidad no encontrada.');await load(d.city);setQuery('')}catch(e){setMessage(e.message)}}
+ 
+async function load(c) {
+  setLoading(true);
+  setMessage('');
+
+  try {
+    const p = new URLSearchParams({
+      latitude: String(c.latitude),
+      longitude: String(c.longitude),
+      current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',
+      daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',
+      timezone: 'auto',
+      forecast_days: '7'
+    });
+
+    const r = await fetch(
+      'https://api.open-meteo.com/v1/forecast?' + p
+    );
+
+    if (!r.ok) {
+      throw Error('Open-Meteo respondió con el código ' + r.status);
+    }
+
+    const result = await r.json();
+
+    setData(result);
+    setCity(c);
+
+  } catch (e) {
+    setMessage('No se pudo consultar el pronóstico: ' + e.message);
+  } finally {
+    setLoading(false);
+  }
+}
+
+async function search(e) {
+  e.preventDefault();
+
+  if (!query.trim()) return;
+
+  setMessage('Buscando localidad…');
+
+  try {
+    const p = new URLSearchParams({
+      name: query.trim(),
+      count: '10',
+      language: 'es',
+      format: 'json'
+    });
+
+    const r = await fetch(
+      'https://geocoding-api.open-meteo.com/v1/search?' + p
+    );
+
+    if (!r.ok) {
+      throw Error('Error de búsqueda: ' + r.status);
+    }
+
+    const d = await r.json();
+
+    const m = (d.results || []).find(
+      x => x.country_code === 'AR'
+    );
+
+    if (!m) {
+      throw Error('No encontramos esa localidad en Argentina.');
+    }
+
+    await load({
+      name: m.name,
+      province: m.admin1 || 'Argentina',
+      latitude: m.latitude,
+      longitude: m.longitude
+    });
+
+    setQuery('');
+
+  } catch (e) {
+    setMessage(e.message);
+  }
+}
  useEffect(()=>{load(cities[0])},[]);
  const current=data?.current,daily=data?.daily,[condition,WeatherIcon]=codes[current?.weather_code]||['Condición no disponible',CloudSun];
  const today=new Intl.DateTimeFormat('es-AR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
