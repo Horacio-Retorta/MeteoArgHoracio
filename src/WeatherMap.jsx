@@ -40,14 +40,20 @@ export default function WeatherMap() {
         const results = await Promise.all(
           locations.map(async (location) => {
             const params = new URLSearchParams({
-              latitude: location.lat,
-              longitude: location.lon
+              latitude: String(location.lat),
+              longitude: String(location.lon),
+              current: 'temperature_2m,wind_speed_10m',
+              daily: 'precipitation_probability_max',
+              timezone: 'auto',
+              forecast_days: '1'
             });
 
-            const response = await fetch('/api/weather?' + params);
+            const response = await fetch(
+              'https://api.open-meteo.com/v1/forecast?' + params
+            );
 
             if (!response.ok) {
-              throw new Error('No se pudieron cargar los datos');
+              throw new Error('Error meteorológico: ' + response.status);
             }
 
             const data = await response.json();
@@ -55,7 +61,7 @@ export default function WeatherMap() {
             return {
               name: location.name,
               temperature: Math.round(data.current.temperature_2m),
-              rain: data.daily.precipitation_probability_max[0],
+              rain: data.daily.precipitation_probability_max[0] ?? 0,
               wind: Math.round(data.current.wind_speed_10m)
             };
           })
@@ -141,12 +147,13 @@ export default function WeatherMap() {
 
       <div className="rain-legend">
         <span>Probabilidad de lluvia:</span>
-        <span> <i style={{background: '#55c9f5'}} /> 0–19%</span>
-        <span> <i style={{background: '#a4d94b'}} /> 20–39%</span>
-        <span> <i style={{background: '#36c5d8'}} /> 40–69%</span>
-        <span> <i style={{background: '#2685ff'}} /> 70–100%</span>
+        <span><i style={{background: '#55c9f5'}} /> 0–19%</span>
+        <span><i style={{background: '#a4d94b'}} /> 20–39%</span>
+        <span><i style={{background: '#36c5d8'}} /> 40–69%</span>
+        <span><i style={{background: '#2685ff'}} /> 70–100%</span>
       </div>
-        <span>Viento: al seleccionar una ciudad podés consultar su velocidad en km/h.</span>
+
+      <span>Viento: al seleccionar una ciudad podés consultar su velocidad en km/h.</span>
     </section>
   );
 }
